@@ -1,0 +1,20 @@
+﻿@inject Microsoft.JSInterop.IJSRuntime JSRuntime 
+<h3>AppRoot component rendered on @_renderLocation</h3>
+
+@code { 
+
+    private string _renderLocation;
+
+    protected override void OnInitialized()
+    {
+        if (JSRuntime is Microsoft.JSInterop.IJSInProcessRuntime)
+        {
+            _renderLocation = "client";
+        }
+        else
+        {
+            _renderLocation = "server";
+        }
+    }
+
+}
